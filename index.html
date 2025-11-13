@@ -22,23 +22,7 @@
       width: 100vw;
     }
 
-    /* Section vidéo à gauche */
-    .video-section {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .video-section video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Sidebar à droite */
+    /* Sidebar (gauche) */
     .sidebar {
       width: 300px;
       background-color: #2c3e50;
@@ -49,17 +33,21 @@
       justify-content: space-between;
     }
 
-    .sidebar h2 {
-      text-align: center;
-      margin-bottom: 10px;
-      font-size: 24px;
-    }
-
-    .sidebar p {
+    .sidebar .social-links {
       text-align: center;
       margin-bottom: 20px;
-      font-size: 14px;
-      color: #bdc3c7;
+    }
+
+    .social-btn {
+      font-size: 22px;
+      color: white;
+      text-decoration: none;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-btn:hover {
+      color: #ff00d4;
+      transform: scale(1.2);
     }
 
     .nav {
@@ -97,42 +85,65 @@
       color: #bdc3c7;
     }
 
-    /* Bouton LinkedIn */
-    .social-links {
-      text-align: center;
-      margin-bottom: 20px;
+    /* Section vidéo (centre) */
+    .video-section {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
     }
 
-    .social-btn {
-      font-size: 22px;
+    .video-section video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Bloc nom et prénom à droite */
+    .right-info {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: right;
       color: white;
-      text-decoration: none;
-      transition: transform 0.3s, color 0.3s;
+      z-index: 2;
+      font-family: 'Arial', sans-serif;
     }
 
-    .social-btn:hover {
-      color: #ff00d4;
-      transform: scale(1.2);
+    .right-info h2 {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    .right-info p {
+      font-size: 16px;
+      color: #bdc3c7;
+      margin: 5px 0 0 0;
+    }
+
+    /* Overlay sombre pour améliorer la lisibilité du texte sur la vidéo */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Section vidéo à gauche -->
-    <div class="video-section">
-      <video autoplay muted loop>
-        <source src="file (1).mp4" type="video/mp4">
-        Votre navigateur ne supporte pas la lecture de vidéos HTML5.
-      </video>
-    </div>
-
-    <!-- Sidebar à droite -->
+    <!-- Sidebar à gauche -->
     <div class="sidebar">
       <div class="social-links">
         <a href="https://www.linkedin.com" target="_blank" class="social-btn" title="LinkedIn">🔗</a>
       </div>
-      <h2>Kanikathir VIJAYASEELAN</h2>
-      <p>Étudiant en BTS SIO - Option SISR</p>
+
       <ul class="nav">
         <li><a href="https://vijayaseelank.github.io/test-gitt/"><span class="emoji">🏠</span> Accueil</a></li>
         <li><a href="profil.html"><span class="emoji">👤</span> Profil</a></li>
@@ -144,12 +155,29 @@
         <li><a href="#"><span class="emoji">📖</span> Épreuves</a></li>
         <li><a href="#"><span class="emoji">✉️</span> Contact</a></li>
       </ul>
+
       <footer>
         <p>&copy; 2025 Designed by Kanikathir Vijayaseelan</p>
       </footer>
     </div>
+
+    <!-- Section vidéo avec texte à droite -->
+    <div class="video-section">
+      <div class="overlay"></div>
+      <video autoplay muted loop>
+        <source src="file (1).mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture de vidéos HTML5.
+      </video>
+
+      <!-- Nom et prénom à droite -->
+      <div class="right-info">
+        <h2>Kanikathir VIJAYASEELAN</h2>
+        <p>Étudiant en BTS SIO - Option SISR</p>
+      </div>
+    </div>
   </div>
 </body>
 </html>
+
 
 
